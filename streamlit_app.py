@@ -15,7 +15,7 @@ fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com"
 fruit_list = fruit_list.set_index('Fruit')
 
 # Pick list to pick fruit to be included
-st.multiselect('Pick some fruits:', list(fruit_list))
+st.multiselect('Pick some fruits:', fruit_list.index)
 
 # display table
 st.dataframe(fruit_list)
