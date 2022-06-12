@@ -13,8 +13,10 @@ fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com"
                          "/dabw/fruit_macros.txt")
 fruit_list = fruit_list.set_index('Fruit')
 
-# filter table based on fruits the user will choose
-st.multiselect('Pick some fruits:', list(fruit_list.index), ['Avocado', 'Strawberries'])
+# put a pick list so user can pick the fruit they want to include
+fruits_selected = st.multiselect('Pick some fruits:', list(fruit_list.index),
+                                 ['Avocado', 'Strawberries'])
+fruits_to_show = fruit_list.loc[fruits_selected]
 
 # display table
-st.dataframe(fruit_list)
+st.dataframe(fruits_to_show)
