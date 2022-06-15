@@ -17,7 +17,7 @@ fruit_list = fruit_list.set_index('Fruit')
 
 # put a pick list so user can pick the fruit they want to include
 fruits_selected = st.multiselect('Pick some fruits:', list(fruit_list.index),
-                                 ['Avocado', 'Strawberries'])
+                                 ['Avocado', 'Strawberries '])
 fruits_to_show = fruit_list.loc[fruits_selected]
 
 # display table
