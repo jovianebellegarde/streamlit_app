@@ -49,7 +49,7 @@ except URLError as e:
 st.write(f'The user entered {fruit_choice}')
 
 # don't run anything past here while we troubleshoot
-st.stop()
+#st.stop()
 
 # connector
 st.header("The fruit load list contains:")
@@ -63,9 +63,10 @@ def get_fruit_load_list():
 
 
 # add a button to load the fruit
-if st.button('Get Fruit Load List'):
+if st.button('View Our Fruit List - Add Your Favorites!'):
     my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
     my_data_rows = get_fruit_load_list()
+    my_cnx.close()
     st.dataframe(my_data_rows)
 
 
