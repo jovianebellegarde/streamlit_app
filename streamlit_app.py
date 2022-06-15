@@ -24,20 +24,26 @@ fruits_to_show = fruit_list.loc[fruits_selected]
 # display table
 st.dataframe(fruits_to_show)
 
+
+def get_fruityvice_data(this_fruit_choice):
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"
+                                       + this_fruit_choice)
+    # take the json version of the response and normalize it
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    return fruityvice_normalized
+
+
 # new section to display fruityvice api response
 st.header('Fruityvice Fruit Advice!')
 
 try:
-    fruit_choice = st.text_input('What fruit would you like information about?')
+    fruit_choice = st.text_input('What fruit would you like '
+                                 'information about?')
     if not fruit_choice:
         st.error('Please select a fruit to get information')
     else:
-        fruityvice_response = requests.get(
-            "https://fruityvice.com/api/fruit/" + fruit_choice)
-        # take the json version of the response and normalize it
-        fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-        # output the screen as a table
-        st.dataframe(fruityvice_normalized)
+        fruity_vice_data = get_fruityvice_data(fruit_choice)
+        st.dataframe(fruity_vice_data)
 
 except URLError as e:
     st.error()
@@ -53,7 +59,8 @@ my_data_rows = my_cur.fetchall()
 st.header("The fruit load list contains:")
 st.dataframe(my_data_rows)
 
-add_fruit_choice = st.text_input('What fruit would you like to add?', 'Jackfruit')
+add_fruit_choice = st.text_input('What fruit would you like to add?',
+                                 'Jackfruit')
 st.write(f'Thanks for adding {add_fruit_choice}')
 
 # will not work correctly, but seeing what happens for now
