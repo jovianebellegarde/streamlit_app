@@ -51,4 +51,4 @@ add_fruit = st.text_input('What fruit would you like to add?')
 st.write(f'Thanks for adding {add_fruit}')
 
 # this will not work correctly, but just go with it for now
-my_cur.execute("select * from fruit_load_list")
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
