@@ -49,7 +49,7 @@ except URLError as e:
 st.write(f'The user entered {fruit_choice}')
 
 # don't run anything past here while we troubleshoot
-st.stop()
+# st.stop()
 
 # connector
 st.header("View Our Fruit List - Add Your Favorites!")
