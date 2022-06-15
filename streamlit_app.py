@@ -49,3 +49,6 @@ st.dataframe(my_data_rows)
 
 add_fruit = st.text_input('What fruit would you like to add?')
 st.write(f'Thanks for adding {add_fruit}')
+
+# this will not work correctly, but just go with it for now
+my_cur.execute("select * from fruit_load_list")
