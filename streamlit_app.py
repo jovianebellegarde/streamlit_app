@@ -71,14 +71,14 @@ def main():
     if st.button("Get Fruit Load List"):
         my_cnx = MY_CNX
         my_data_rows = get_fruit_load_list()
-        my_cnx.close()
+        # my_cnx.close()
         st.dataframe(my_data_rows)
 
     add_my_fruit = st.text_input("What fruit would you like to add?")
     if st.button("Add a Fruit to the List"):
         my_cnx = MY_CNX
         added_fruit = insert_row_snowflake(add_my_fruit)
-        my_cnx.close()
+        # my_cnx.close()
         st.text(added_fruit)
 
 
