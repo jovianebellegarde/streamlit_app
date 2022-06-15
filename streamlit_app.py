@@ -50,7 +50,7 @@ except URLError as e:
     st.error()
 
 # don't run anything past here while debugging
-st.stop()
+#st.stop()
 
 
 # Snowflake-related functions
