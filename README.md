@@ -1,3 +1,4 @@
-#First Streamlit App
+# First Streamlit App
 
-This Streamlit made app is useful for viewing nutritional facts of common fruits.
+Users can build their own fruit smoothie by picking some fruit from a dropdown list and view the nutritional value of each fruit displayed as a table. 
+Users can also directly type the desired fruit inside the text box. Lastly, users can choose to add their desired fruit into the fruit list.
